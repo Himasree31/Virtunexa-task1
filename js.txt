@@ -1,0 +1,16 @@
+// Toggle mobile navigation
+document.getElementById('mobile-menu').addEventListener('click', function () {
+  document.querySelector('.nav-links').classList.toggle('active');
+});
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    target.scrollIntoView({
+      behavior: 'smooth'
+    });
+    document.querySelector('.nav-links').classList.remove('active'); // close mobile menu after click
+  });
+});
